@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hägerstrand Lab — Department of Human Geography, Lund University</title>
+<meta name="description" content="The Hägerstrand Lab is a computational research infrastructure at the Department of Human Geography, Lund University. Open in scope, computational in spirit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:root{
+  --ink:#14213d; --ink-soft:#2b3556;
+  --paper:#fbf9f4; --paper-2:#f3efe6;
+  --rule:#e3ddcf; --rule-soft:#ece7da;
+  --muted:#5a5d6b; --text:#1f2438;
+  --accent:#b08534; --accent-2:#d4a945;
+  --maxw:1180px; --readw:720px;
+}
+body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--text);line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+
+/* Topbar */
+.topbar{border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50;backdrop-filter:saturate(120%) blur(6px);background:rgba(251,249,244,.92)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;max-width:var(--maxw);margin:0 auto}
+.brand{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--ink);letter-spacing:.01em;text-decoration:none}
+.brand .dot{color:var(--accent)}
+nav.primary{display:flex;gap:1.6rem;flex-wrap:wrap}
+nav.primary a{font-size:.85rem;font-weight:500;color:var(--ink-soft);text-decoration:none;letter-spacing:.02em;border-bottom:1px solid transparent;padding-bottom:2px;transition:color .2s,border-color .2s}
+nav.primary a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Hero */
+.hero{padding:5rem 0 3.5rem}
+.hero .eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.25rem}
+.hero h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(2.6rem,6.2vw,4.6rem);line-height:1.04;letter-spacing:-.015em;color:var(--ink);margin-bottom:1.1rem}
+.hero .subtitle{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.2rem,2.4vw,1.55rem);color:var(--accent);margin-bottom:1.4rem;letter-spacing:.01em}
+.hero .lede{font-size:1.18rem;line-height:1.6;color:var(--ink-soft);max-width:680px;font-weight:400}
+.hero-meta{margin-top:2.25rem;display:flex;flex-wrap:wrap;gap:1.25rem 2rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1.5rem}
+.hero-meta span strong{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--ink);font-weight:600;margin-bottom:.25rem}
+
+/* Sections */
+section{padding:5rem 0;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:none}
+.section-head{display:grid;grid-template-columns:200px 1fr;gap:3rem;margin-bottom:2.5rem}
+.section-label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;padding-top:.7rem;border-top:2px solid var(--accent);align-self:start}
+.section-head h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.18;letter-spacing:-.01em;color:var(--ink)}
+.section-body{display:grid;grid-template-columns:200px 1fr;gap:3rem}
+.section-body .body{max-width:760px}
+.section-body p{margin-bottom:1.1rem;font-size:1.02rem;color:var(--text)}
+.section-body p:last-child{margin-bottom:0}
+.section-body p.lead{font-size:1.12rem;line-height:1.7;color:var(--ink)}
+
+.subhead{
+  font-family:'Inter',sans-serif;
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+  margin:2.4rem 0 .8rem
+}
+
+/* What We Do — mission hub */
+.mission-hub{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.mission-center{
+  grid-column:1/-1;
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:4px;
+  padding:1.6rem 2rem;
+  text-align:center
+}
+.mission-center h4{
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:1.02rem;
+  color:var(--paper);
+  margin-bottom:.35rem;
+  letter-spacing:.005em
+}
+.mission-center p{
+  color:rgba(251,249,244,.7);
+  font-size:.92rem;
+  margin:0
+}
+.mission-node{
+  background:#fff;
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:1.35rem 1.5rem;
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease
+}
+.mission-node:hover{border-color:var(--accent);box-shadow:0 6px 22px -10px rgba(176,133,52,.25);transform:translateY(-1px)}
+.mission-node .node-icon{
+  display:inline-block;
+  font-size:1.25rem;
+  color:var(--accent);
+  margin-bottom:.55rem;
+  line-height:1
+}
+.mission-node h4{
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:.98rem;
+  color:var(--ink);
+  margin-bottom:.3rem
+}
+.mission-node p{
+  font-size:.88rem;
+  color:var(--muted);
+  margin:0;
+  line-height:1.55
+}
+
+/* Inauguration */
+.event-card{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;margin-bottom:2.5rem}
+.event-card .text h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.45rem;color:var(--ink);margin-bottom:.6rem}
+.event-card .text p{color:var(--ink-soft)}
+.event-meta{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;margin:1rem 0 1.2rem;font-size:.85rem}
+.event-meta .chip{display:inline-flex;align-items:center;gap:.4rem;background:var(--paper-2);border:1px solid var(--rule);padding:.35rem .7rem;border-radius:999px;color:var(--ink-soft)}
+.event-meta .chip strong{color:var(--ink);font-weight:600}
+.event-card img{border-radius:4px;box-shadow:0 10px 30px -12px rgba(20,33,61,.25)}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--paper);text-decoration:none;font-size:.86rem;font-weight:500;letter-spacing:.02em;padding:.7rem 1.2rem;border-radius:4px;border:1px solid var(--ink);transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(3px)}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1rem}
+.gallery a{display:block;overflow:hidden;border-radius:4px;background:var(--paper-2);aspect-ratio:4/3;position:relative}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .5s ease;filter:saturate(.95)}
+.gallery a:hover img{transform:scale(1.04);filter:saturate(1.05)}
+.gallery-caption{font-size:.82rem;color:var(--muted);margin-top:.9rem;font-style:italic;text-align:center}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;background:rgba(15,20,40,.92);display:none;align-items:center;justify-content:center;z-index:100;padding:2rem;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:88vh;border-radius:4px;cursor:default}
+.lb-close{position:absolute;top:1.2rem;right:1.4rem;color:#fff;background:none;border:none;font-size:2rem;cursor:pointer;line-height:1}
+
+/* News */
+.news-list{display:flex;flex-direction:column;gap:1.4rem}
+.news-item{display:grid;grid-template-columns:140px 1fr;gap:1.4rem;padding:1.4rem 0;border-bottom:1px solid var(--rule-soft)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;padding-top:.15rem}
+.news-body h4{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.15rem;color:var(--ink);margin-bottom:.4rem;line-height:1.3}
+.news-body p{font-size:.97rem;color:var(--ink-soft);margin-bottom:0}
+.news-body a.more{display:inline-block;margin-top:.5rem;color:var(--accent);font-size:.85rem;font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
+.news-body a.more:hover{border-bottom-color:var(--accent)}
+
+/* Visit */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.info-card{background:var(--paper-2);border:1px solid var(--rule);padding:1.8rem 2rem;border-radius:4px}
+.info-card h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.2rem;color:var(--ink);margin-bottom:.6rem}
+.info-card p{font-size:.95rem;color:var(--ink-soft);margin-bottom:.5rem}
+.info-card a{color:var(--accent);text-decoration:none;font-weight:500;border-bottom:1px solid transparent}
+.info-card a:hover{border-bottom-color:var(--accent)}
+
+/* Footer */
+footer.site{background:var(--ink);color:rgba(251,249,244,.7);padding:3rem 2rem 2rem;margin-top:2rem}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-end}
+footer.site h5{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.1rem;color:var(--paper);margin-bottom:.4rem}
+footer.site p{font-size:.85rem;line-height:1.55}
+footer.site a{color:var(--accent-2);text-decoration:none}
+footer.site a:hover{color:var(--paper)}
+footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;color:rgba(251,249,244,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+/* Responsive */
+@media (max-width:960px){
+  .gallery{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:860px){
+  .section-head,.section-body{grid-template-columns:1fr;gap:1rem}
+  .section-label{border-top:none;padding-top:0}
+  .event-card{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  nav.primary{gap:1rem}
+  .news-item{grid-template-columns:1fr;gap:.4rem}
+  .hero{padding:3rem 0 2rem}
+  .mission-hub{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .wrap{padding:0 1.3rem}
+  .topbar-inner{padding:.9rem 1.3rem}
+  nav.primary a{font-size:.78rem}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .hero-meta{gap:.8rem 1.5rem}
+  section{padding:3.5rem 0}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">Hägerstrand<span class="dot"> · </span>Lab</a>
+    <nav class="primary">
+      <a href="#about">About</a>
+      <a href="#what">What We Do</a>
+      <a href="#inauguration">Inauguration</a>
+      <a href="#news">News</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="border-top:none">
+  <div class="wrap">
+    <div class="eyebrow">Department of Human Geography · Lund University</div>
+    <h1>Hägerstrand Lab</h1>
+    <div class="subtitle">Computational Inquiry in Human Geography</div>
+    <p class="lede">A newly founded research infrastructure at the Department of Human Geography, established to bring data, code, and ideas into proximity with the fundamental questions of human geography.</p>
+    <div class="hero-meta">
+      <span><strong>Location</strong>Room 42, KEG · Geocentrum I<br>Sölvegatan 10, 223 62 Lund</span>
+      <span><strong>Founded</strong>May 2026</span>
+      <span><strong>Contact</strong><a href="mailto:philipp.stark@keg.lu.se" style="color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)">philipp.stark@keg.lu.se</a></span>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">01 — About the Lab</div>
+      <h2>A shared space for computational geography.</h2>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="body">
+        <p class="lead">The Hägerstrand Lab is a research environment at the Department of Human Geography where computational approaches are developed, discussed, and put into practice. It brings together researchers, students, data, code, and infrastructure in one shared space.</p>
+        <p>The lab supports work across human geography and computational social science — from spatial data analysis and machine learning to visualization, simulation, and digital mapping. Some projects are highly technical, others more exploratory. What matters is a willingness to work computationally with geographical questions.</p>
+
+        <div class="subhead">Open by design</div>
+        <p>The lab does not follow a narrow definition of what "computational" should mean. Different methods, tools, and traditions coexist here: programming, GIS, statistics, visualization, modeling, qualitative–quantitative work, and experimental forms of inquiry.</p>
+        <p>Rather than enforcing a single approach, the lab is intended as a place where people with different competences can encounter each other's work, exchange ideas, and collaborate across boundaries.</p>
+
+        <div class="subhead">Why Hägerstrand?</div>
+        <p>The lab is named after <strong>Torsten Hägerstrand</strong>, whose work at Lund University reshaped human geography through ideas about space, time, mobility, and everyday life. His time-geography described how human activity unfolds through paths, constraints, and interactions across space and time.</p>
+        <p>Many of those ideas now intersect naturally with contemporary computational methods: mobility data, spatial simulation, agent-based models, and large-scale geographical analysis. The name reflects both an intellectual inheritance and a continuing curiosity about how computational methods can deepen geographical understanding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">02 — What We Do</div>
+      <h2>One shared purpose, many practices.</h2>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="body">
+        <p>At its core, the lab brings together people with computational competences and an interest in them. That central purpose radiates outward into several interconnected activities:</p>
+
+        <div class="mission-hub">
+          <div class="mission-center">
+            <h4>Bringing together people with computational competences and interest in them</h4>
+            <p>The shared purpose that connects all lab activities</p>
+          </div>
+
+          <div class="mission-node">
+            <span class="node-icon">⟷</span>
+            <h4>Place for Exchange</h4>
+            <p>A forum for dialogue across methodological and disciplinary boundaries.</p>
+          </div>
+
+          <div class="mission-node">
+            <span class="node-icon">◈</span>
+            <h4>Collect Knowledge</h4>
+            <p>Bringing together information, resources, and shared reference materials.</p>
+          </div>
+
+          <div class="mission-node">
+            <span class="node-icon">⚙</span>
+            <h4>Create Digital &amp; Physical Products</h4>
+            <p>From code and visualizations to reports and spatial artifacts.</p>
+          </div>
+
+          <div class="mission-node">
+            <span class="node-icon">⊞</span>
+            <h4>Cluster Services</h4>
+            <p>Access to and support for high-performance computing infrastructure.</p>
+          </div>
+
+          <div class="mission-node">
+            <span class="node-icon">∿</span>
+            <h4>Students &amp; Researchers</h4>
+            <p>Bridging graduate learning and active research practice.</p>
+          </div>
+
+          <div class="mission-node">
+            <span class="node-icon">↗</span>
+            <h4>Guests &amp; Temporary Staff</h4>
+            <p>A fixed point for visiting scholars and short-term collaborators.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="inauguration">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">03 — First event</div>
+      <h2>The Inauguration<br><span style="color:var(--accent);font-style:italic;font-weight:400">Tuesday, 5 May 2026</span></h2>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="body">
+        <div class="event-card">
+          <div class="text">
+            <h3>Fika, projects, and an opportunity space.</h3>
+            <p>The inauguration marked the opening of the Hägerstrand Lab as a new research environment within the Department of Human Geography, with support and recognition from both the department and the Faculty of Social Sciences. The afternoon brought together colleagues and guests for conversation, fika, and a series of welcoming speeches. Henrik Gutzon Larsen reflected on the intellectual legacy of Torsten Hägerstrand and its continued relevance for contemporary geographical research, alongside welcoming words by Ola Hall, Markus Grillitsch, and <a href="https://philippstark.github.io/NotJustPhil/" target="_blank" rel="noopener">Philipp Stark</a>.</p>
+            <div class="event-meta">
+              <span class="chip"><strong>When</strong>5 May 2026, 3 pm</span>
+              <span class="chip"><strong>Where</strong>Room 42, KEG · Geocentrum I</span>
+              <span class="chip"><strong>Format</strong>Talks · fika · conversation</span>
+            </div>
+            <a class="btn ghost" href="Inauguration_Hägerstrand_Lab.pdf" target="_blank" rel="noopener">Read the invitation (PDF) <span class="arr">→</span></a>
+          </div>
+          <img src="images/20260505_150432.jpg" alt="Guests gathered under the skylights in Room 42, with the wall-mounted map visible during the inauguration" loading="lazy">
+        </div>
+
+        <div class="gallery">
+          <a href="images/20260505_150432.jpg" data-lightbox><img src="images/20260505_150432.jpg" alt="Group seated and standing under the skylights in the lab" loading="lazy"></a>
+          <a href="images/20260505_150546.jpg" data-lightbox><img src="images/20260505_150546.jpg" alt="Guests gathered by the Africa map in the lab" loading="lazy"></a>
+          <a href="images/20260505_150323.jpg" data-lightbox><img src="images/20260505_150323.jpg" alt="Conversation by a research poster during the inauguration" loading="lazy"></a>
+          <a href="images/20260505_150901.jpg" data-lightbox><img src="images/20260505_150901.jpg" alt="Discussion in front of a satellite-derived poverty map" loading="lazy"></a>
+          <a href="images/20260505_151133.jpg" data-lightbox><img src="images/20260505_151133.jpg" alt="A toast among guests at the inauguration" loading="lazy"></a>
+          <a href="images/20260505_152411.jpg" data-lightbox><img src="images/20260505_152411.jpg" alt="A presentation of ongoing computational research" loading="lazy"></a>
+          <a href="images/1778159733466.jpg" data-lightbox><img src="images/1778159733466.jpg" alt="A speaker under the skylights at the inauguration" loading="lazy"></a>
+          <a href="images/1778159733533.jpg" data-lightbox><img src="images/1778159733533.jpg" alt="Animated conversation among guests during the inauguration" loading="lazy"></a>
+        </div>
+        <p class="gallery-caption">Click any image to enlarge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+   ADDING A NEWS ENTRY
+   Copy one of the <article class="news-item">...</article> blocks below,
+   paste it at the TOP of .news-list (newest first), then edit the
+   date, headline, and body. Keep entries short; link out for longer posts.
+-->
+<section id="news">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">04 — News</div>
+      <h2>What's happening in the lab.</h2>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="body">
+        <div class="news-list">
+
+          <article class="news-item">
+            <div class="news-date">5 May 2026</div>
+            <div class="news-body">
+              <h4>The lab is open.</h4>
+              <p>The Hägerstrand Lab held its inauguration in Room 42 on 5 May 2026. Thanks to everyone who came, presented, and stayed for cake. Photos and a short recap are in the section above.</p>
+              <a href="#inauguration" class="more">See the recap →</a>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <div class="news-date">April 2026</div>
+            <div class="news-body">
+              <h4>Welcoming new colleagues</h4>
+              <p>
+                <a href="https://yuan-liao.com/" target="_blank" rel="noopener">Yuan</a>,
+                <a href="https://hongyeehh.github.io/" target="_blank" rel="noopener">Ye</a>,
+                <a href="https://www.linkedin.com/in/melissa-cardonaag/" target="_blank" rel="noopener">Melissa</a>
+                &amp;
+                <a href="https://www.lunduniversity.lu.se/lucat/user/f163ccdac812c2a31e2555b764f283ca" target="_blank" rel="noopener">Fabio</a>
+                joined the department in the lead-up to the inauguration. Their work spans mobility data science, GeoAI, spatial analytics, urban inequality, housing justice, and computational approaches to understanding social and spatial life.
+              </p>
+            </div>
+          </article>
+
+          <!-- NEWS ENTRY TEMPLATE — copy, paste above, edit:
+          <article class="news-item">
+            <div class="news-date">Month YYYY</div>
+            <div class="news-body">
+              <h4>Headline goes here.</h4>
+              <p>Short paragraph describing the news. Keep it readable in under four lines.</p>
+              <a href="#" class="more">Optional link →</a>
+            </div>
+          </article>
+          -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">05 — Visit</div>
+      <h2>Find us, write to us.</h2>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="body">
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Where</h3>
+            <p>Room 42 · 4th floor<br>KEG, Geocentrum I<br>Sölvegatan 10, 223 62 Lund<br>Sweden</p>
+            <p style="margin-top:.8rem;font-size:.85rem;color:var(--muted)"><em>Formerly Room 426 — the 6 has gone missing.</em></p>
+          </div>
+          <div class="info-card">
+            <h3>Get in touch</h3>
+            <p>For questions, visits, collaborations, or to join an event:</p>
+            <p><a href="mailto:philipp.stark@keg.lu.se">philipp.stark@keg.lu.se</a></p>
+            <p style="margin-top:.8rem;font-size:.85rem;color:var(--muted)">The lab welcomes researchers, students, and visitors from inside and outside the department.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <h5>Hägerstrand Lab</h5>
+      <p>Department of Human Geography<br>Lund University · Sweden</p>
+    </div>
+    <div>
+      <p><a href="https://www.keg.lu.se" target="_blank" rel="noopener">keg.lu.se ↗</a><br><a href="mailto:philipp.stark@keg.lu.se">philipp.stark@keg.lu.se</a></p>
+    </div>
+    <div class="credit">
+      <span>© 2026 Hägerstrand Lab · Lund University</span>
+      <span>Named in tribute to Torsten Hägerstrand (1916–2004).</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" aria-label="Close" id="lbClose">×</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+(function(){
+  const lb=document.getElementById('lb');
+  const lbImg=document.getElementById('lbImg');
+  const close=document.getElementById('lbClose');
+  document.querySelectorAll('a[data-lightbox]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      lbImg.src=a.getAttribute('href');
+      lbImg.alt=a.querySelector('img')?.alt||'';
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  const dismiss=()=>{lb.classList.remove('open');lbImg.src='';document.body.style.overflow=''};
+  lb.addEventListener('click',dismiss);
+  close.addEventListener('click',e=>{e.stopPropagation();dismiss()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')dismiss()});
+})();
+</script>
+
+</body>
+</html>
