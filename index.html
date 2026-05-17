@@ -172,6 +172,12 @@ footer.site a{color:var(--accent-2);text-decoration:none}
 footer.site a:hover{color:var(--paper)}
 footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;color:rgba(251,249,244,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 
+/* SESAC collaboration box */
+.collab-box{display:flex;align-items:center;gap:.85rem;background:#fff;border:1px solid var(--rule);border-radius:4px;padding:.75rem 1.1rem;text-decoration:none;color:var(--ink-soft);font-size:.82rem;line-height:1.45;max-width:340px;transition:border-color .2s,box-shadow .2s;align-self:center}
+.collab-box:hover{border-color:var(--accent);box-shadow:0 4px 16px -8px rgba(176,133,52,.28)}
+.collab-box img{width:64px;height:auto;flex-shrink:0;border-radius:2px}
+.collab-box strong{color:var(--ink);font-weight:600}
+
 /* Responsive */
 @media (max-width:960px){
   .gallery{grid-template-columns:repeat(3,1fr)}
