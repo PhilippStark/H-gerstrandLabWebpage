@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News — Hägerstrand Lab</title>
+<meta name="description" content="News and updates from the Hägerstrand Lab at the Department of Human Geography, Lund University.">
+<meta property="og:image" content="context/Computational_Lab_Vision.png">
+<meta property="og:image:alt" content="Hägerstrand Lab — Computational research infrastructure at Lund University">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="context/Computational_Lab_Vision.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:root{
+  --ink:#14213d; --ink-soft:#2b3556;
+  --paper:#fbf9f4; --paper-2:#f3efe6;
+  --rule:#e3ddcf; --rule-soft:#ece7da;
+  --muted:#5a5d6b; --text:#1f2438;
+  --accent:#b08534; --accent-2:#d4a945;
+  --maxw:1180px; --readw:720px;
+}
+body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--text);line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+
+/* Topbar */
+.topbar{border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50;backdrop-filter:saturate(120%) blur(6px);background:rgba(251,249,244,.92)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;max-width:var(--maxw);margin:0 auto}
+.brand{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--ink);letter-spacing:.01em;text-decoration:none}
+.brand .dot{color:var(--accent)}
+nav.primary{display:flex;gap:1.6rem;flex-wrap:wrap}
+nav.primary a{font-size:.85rem;font-weight:500;color:var(--ink-soft);text-decoration:none;letter-spacing:.02em;border-bottom:1px solid transparent;padding-bottom:2px;transition:color .2s,border-color .2s}
+nav.primary a:hover,nav.primary a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Hero */
+.hero{padding:5rem 0 3.5rem}
+.hero .eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.25rem}
+.hero h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(2.6rem,6.2vw,4.6rem);line-height:1.04;letter-spacing:-.015em;color:var(--ink);margin-bottom:1.1rem}
+.hero .subtitle{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.2rem,2.4vw,1.55rem);color:var(--accent);margin-bottom:1.4rem;letter-spacing:.01em}
+.hero .lede{font-size:1.18rem;line-height:1.6;color:var(--ink-soft);max-width:680px;font-weight:400}
+
+/* Sections */
+section{padding:5rem 0;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:none}
+.section-head{display:grid;grid-template-columns:200px 1fr;gap:3rem;margin-bottom:2.5rem}
+.section-label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;padding-top:.7rem;border-top:2px solid var(--accent);align-self:start}
+.section-head h2{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.18;letter-spacing:-.01em;color:var(--ink)}
+.section-body{display:grid;grid-template-columns:200px 1fr;gap:3rem}
+.section-body .body{max-width:760px}
+.section-body p{margin-bottom:1.1rem;font-size:1.02rem;color:var(--text)}
+.section-body p:last-child{margin-bottom:0}
+
+/* News */
+.newsletter{font-size:1.02rem;color:var(--ink-soft)}
+.newsletter-meta{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:1.2rem}
+.newsletter .lead{font-size:1.12rem;line-height:1.7;color:var(--ink);margin-bottom:1.6rem}
+.newsletter-block{padding:1.65rem 0;border-top:1px solid var(--rule-soft)}
+.newsletter-block:first-of-type{border-top:none;padding-top:0}
+.newsletter-block h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.45rem;color:var(--ink);line-height:1.25;margin-bottom:.65rem}
+.newsletter-block p{font-size:1rem;color:var(--ink-soft);margin-bottom:.9rem}
+.newsletter-block p:last-child{margin-bottom:0}
+.newsletter a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
+.newsletter a:hover{border-bottom-color:var(--accent)}
+.newsletter-callout{background:var(--paper-2);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:1.25rem 1.4rem;margin:1.3rem 0}
+.newsletter-callout strong{display:block;color:var(--ink);font-weight:600;margin-bottom:.35rem}
+.newsletter ul{display:grid;grid-template-columns:1fr;gap:.85rem;list-style:none;margin:1rem 0 0;padding:0}
+.newsletter li{background:#fff;border:1px solid var(--rule-soft);border-radius:4px;padding:1rem 1.1rem;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
+.newsletter li strong{color:var(--ink);font-weight:600}
+.newsletter-status{color:var(--muted);font-size:.95rem}
+.archive-title{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:2.6rem 0 .3rem}
+.news-list{display:flex;flex-direction:column;gap:1.4rem}
+.news-item{display:grid;grid-template-columns:140px 1fr;gap:1.4rem;padding:1.4rem 0;border-bottom:1px solid var(--rule-soft)}
+.news-item:last-child{border-bottom:none}
+.news-date{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;padding-top:.15rem}
+.news-body h4{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.15rem;color:var(--ink);margin-bottom:.4rem;line-height:1.3}
+.news-body p{font-size:.97rem;color:var(--ink-soft);margin-bottom:0}
+.news-body p + p{margin-top:.65rem}
+.news-body a.more{display:inline-block;margin-top:.5rem;color:var(--accent);font-size:.85rem;font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
+.news-body a.more:hover{border-bottom-color:var(--accent)}
+
+/* Footer */
+footer.site{background:var(--ink);color:rgba(251,249,244,.7);padding:3rem 2rem 2rem;margin-top:2rem}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-end}
+footer.site h5{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.1rem;color:var(--paper);margin-bottom:.4rem}
+footer.site p{font-size:.85rem;line-height:1.55}
+footer.site a{color:var(--accent-2);text-decoration:none}
+footer.site a:hover{color:var(--paper)}
+footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;color:rgba(251,249,244,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+/* Responsive */
+@media (max-width:860px){
+  .section-head,.section-body{grid-template-columns:1fr;gap:1rem}
+  .section-label{border-top:none;padding-top:0}
+  nav.primary{gap:1rem}
+  .news-item{grid-template-columns:1fr;gap:.4rem}
+  .hero{padding:3rem 0 2rem}
+}
+@media (max-width:520px){
+  .wrap{padding:0 1.3rem}
+  .topbar-inner{padding:.9rem 1.3rem}
+  nav.primary a{font-size:.78rem}
+  section{padding:3.5rem 0}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html#top">Hägerstrand<span class="dot"> · </span>Lab</a>
+    <nav class="primary">
+      <a href="index.html#about">About</a>
+      <a href="index.html#what">What We Do</a>
+      <a href="index.html#inauguration">Inauguration</a>
+      <a href="news.html" aria-current="page">News</a>
+      <a href="index.html#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="border-top:none">
+  <div class="wrap">
+    <div class="eyebrow">Department of Human Geography · Lund University</div>
+    <h1>Hägerstrand Newsletter</h1>
+    <div class="subtitle">Early summer 2026</div>
+    <p class="lede">A fuller update on the lab's launch, emerging projects, collaborations, meetings, and what comes next after the summer break.</p>
+  </div>
+</section>
+
+<!--
+   ADDING A NEWSLETTER
+   Edit newsletter.md to update the main newsletter.
+   Shorter archive notes can be added to .news-list at the bottom.
+-->
+<section id="news">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Newsletter</div>
+      <h2>From inauguration to the first projects.</h2>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="body">
+        <article class="newsletter" id="newsletterArticle" data-markdown-src="newsletter.md">
+          <p class="newsletter-status">Loading newsletter...</p>
+        </article>
+
+        <div class="archive-title">Earlier notes</div>
+        <div class="news-list">
+
+          <article class="news-item">
+            <div class="news-date">5 May 2026</div>
+            <div class="news-body">
+              <h4>The lab is open.</h4>
+              <p>The Hägerstrand Lab held its inauguration in Room 42 on 5 May 2026. Thanks to everyone who came, presented, and stayed for cake. Photos and a short recap are in the inauguration section.</p>
+              <a href="index.html#inauguration" class="more">See the recap →</a>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <div class="news-date">April 2026</div>
+            <div class="news-body">
+              <h4>Welcoming new colleagues</h4>
+              <p>
+                <a href="https://yuan-liao.com/" target="_blank" rel="noopener">Yuan</a>,
+                <a href="https://hongyeehh.github.io/" target="_blank" rel="noopener">Ye</a>,
+                <a href="https://www.linkedin.com/in/melissa-cardonaag/" target="_blank" rel="noopener">Melissa</a>
+                &amp;
+                <a href="https://www.lunduniversity.lu.se/lucat/user/f163ccdac812c2a31e2555b764f283ca" target="_blank" rel="noopener">Fabio</a>
+                joined the department in the lead-up to the inauguration. Their work spans mobility data science, GeoAI, spatial analytics, urban inequality, housing justice, and computational approaches to understanding social and spatial life.
+              </p>
+            </div>
+          </article>
+
+          <!-- NEWS ENTRY TEMPLATE — copy, paste above, edit:
+          <article class="news-item">
+            <div class="news-date">Month YYYY</div>
+            <div class="news-body">
+              <h4>Headline goes here.</h4>
+              <p>Short paragraph describing the news. Keep it readable in under four lines.</p>
+              <a href="#" class="more">Optional link →</a>
+            </div>
+          </article>
+          -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <h5>Hägerstrand Lab</h5>
+      <p>Department of Human Geography<br>Lund University · Sweden</p>
+    </div>
+    <div>
+      <p><a href="https://www.keg.lu.se" target="_blank" rel="noopener">keg.lu.se ↗</a><br><a href="mailto:philipp.stark@keg.lu.se">philipp.stark@keg.lu.se</a></p>
+    </div>
+    <div class="credit">
+      <span>© 2026 Hägerstrand Lab · Lund University</span>
+      <span>Named in tribute to Torsten Hägerstrand (1916–2004).</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const article = document.getElementById('newsletterArticle');
+  if (!article) return;
+
+  const escapeHtml = text => text
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+
+  const renderInline = text => {
+    let html = escapeHtml(text);
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(_, label, url){
+      const safeUrl = escapeHtml(url);
+      const external = /^https?:\/\//i.test(url);
+      const attrs = external ? ' target="_blank" rel="noopener"' : '';
+      return '<a href="' + safeUrl + '"' + attrs + '>' + label + '</a>';
+    });
+    html = html.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+    html = html.replace(/\*([^*]+)\*/g,'<em>$1</em>');
+    return html;
+  };
+
+  const renderMarkdown = markdown => {
+    const lines = markdown.replace(/\r/g,'').split('\n');
+    let html = '';
+    let paragraph = [];
+    let list = [];
+    let quote = [];
+    let inBlock = false;
+    let sawMeta = false;
+    let sawLead = false;
+
+    const closeBlock = () => {
+      if (inBlock) html += '</div>';
+      inBlock = false;
+    };
+
+    const flushParagraph = () => {
+      if (!paragraph.length) return;
+      const text = paragraph.join(' ').trim();
+      paragraph = [];
+      if (!text) return;
+      if (!sawMeta) {
+        html += '<div class="newsletter-meta">' + renderInline(text) + '</div>';
+        sawMeta = true;
+        return;
+      }
+      if (!sawLead && !inBlock) {
+        html += '<p class="lead">' + renderInline(text) + '</p>';
+        sawLead = true;
+        return;
+      }
+      html += '<p>' + renderInline(text) + '</p>';
+    };
+
+    const flushList = () => {
+      if (!list.length) return;
+      html += '<ul>' + list.map(item => '<li>' + renderInline(item) + '</li>').join('') + '</ul>';
+      list = [];
+    };
+
+    const flushQuote = () => {
+      if (!quote.length) return;
+      html += '<div class="newsletter-callout">' + renderInline(quote.join(' ').trim()) + '</div>';
+      quote = [];
+    };
+
+    const flushAll = () => {
+      flushParagraph();
+      flushList();
+      flushQuote();
+    };
+
+    lines.forEach(line => {
+      const trimmed = line.trim();
+
+      if (!trimmed) {
+        flushAll();
+        return;
+      }
+
+      if (trimmed.startsWith('## ')) {
+        flushAll();
+        closeBlock();
+        html += '<div class="newsletter-block"><h3>' + renderInline(trimmed.slice(3).trim()) + '</h3>';
+        inBlock = true;
+        return;
+      }
+
+      if (trimmed.startsWith('> ')) {
+        flushParagraph();
+        flushList();
+        quote.push(trimmed.slice(2).trim());
+        return;
+      }
+
+      if (trimmed.startsWith('- ')) {
+        flushParagraph();
+        flushQuote();
+        list.push(trimmed.slice(2).trim());
+        return;
+      }
+
+      paragraph.push(trimmed);
+    });
+
+    flushAll();
+    closeBlock();
+    return html;
+  };
+
+  fetch(article.dataset.markdownSrc, { cache: 'no-cache' })
+    .then(response => {
+      if (!response.ok) throw new Error('Newsletter file not found');
+      return response.text();
+    })
+    .then(markdown => {
+      article.innerHTML = renderMarkdown(markdown);
+    })
+    .catch(() => {
+      article.innerHTML = '<p class="newsletter-status">The newsletter could not be loaded. Open <a href="newsletter.md">newsletter.md</a> directly.</p>';
+    });
+})();
+</script>
+
+</body>
+</html>

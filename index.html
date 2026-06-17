@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hägerstrand Lab — Department of Human Geography, Lund University</title>
 <meta name="description" content="The Hägerstrand Lab is a computational research infrastructure at the Department of Human Geography, Lund University. Open in scope, computational in spirit.">
-<meta property="og:image" content="Computational_Lab_Vision.png">
+<meta property="og:image" content="context/Computational_Lab_Vision.png">
 <meta property="og:image:alt" content="Hägerstrand Lab — Computational research infrastructure at Lund University">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="Computational_Lab_Vision.png">
+<meta name="twitter:image" content="context/Computational_Lab_Vision.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -39,12 +39,19 @@ nav.primary a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 
 /* Hero */
 .hero{padding:5rem 0 3.5rem}
+.hero-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,42%);gap:3rem;align-items:stretch}
+.hero-copy{align-self:center}
+.hero-visual{display:flex;align-items:center;justify-content:flex-end;min-height:320px}
+.hero-visual img{width:100%;height:100%;max-height:390px;object-fit:contain;object-position:center right}
 .hero .eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.25rem}
 .hero h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(2.6rem,6.2vw,4.6rem);line-height:1.04;letter-spacing:-.015em;color:var(--ink);margin-bottom:1.1rem}
 .hero .subtitle{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.2rem,2.4vw,1.55rem);color:var(--accent);margin-bottom:1.4rem;letter-spacing:.01em}
 .hero .lede{font-size:1.18rem;line-height:1.6;color:var(--ink-soft);max-width:680px;font-weight:400}
 .hero-meta{margin-top:2.25rem;display:flex;flex-wrap:wrap;gap:1.25rem 2rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1.5rem}
 .hero-meta span strong{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--ink);font-weight:600;margin-bottom:.25rem}
+.hero-collaborators{margin-top:1.7rem;padding-top:1.35rem;border-top:1px solid var(--rule)}
+.hero-collaborators .collab-kicker{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:.8rem}
+.hero-collaborators p{max-width:760px;color:var(--ink-soft);font-size:.96rem;margin-bottom:1rem}
 
 /* Sections */
 section{padding:5rem 0;border-top:1px solid var(--rule)}
@@ -120,6 +127,31 @@ section:first-of-type{border-top:none}
   line-height:1.55
 }
 
+/* Collaborators */
+.collaborator-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.collaborator-card{
+  min-height:136px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.55rem;
+  background:#fff;
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:1.15rem 1rem;
+  text-align:center;
+  text-decoration:none;
+  color:var(--ink-soft);
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease
+}
+.collaborator-card:hover{border-color:var(--accent);box-shadow:0 8px 24px -12px rgba(20,33,61,.28);transform:translateY(-1px)}
+.collaborator-card img{max-width:150px;max-height:52px;width:auto;height:auto;object-fit:contain;margin-bottom:.2rem}
+.collaborator-card strong{font-size:.86rem;line-height:1.3;color:var(--ink);font-weight:600}
+.collaborator-card small{font-size:.7rem;line-height:1.35;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.collaborator-card.text-only{background:var(--paper-2)}
+.collaborator-card.text-only strong{font-family:'Source Serif 4',Georgia,serif;font-size:1.16rem;font-weight:600;line-height:1.18}
+
 /* Inauguration */
 .event-card{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;margin-bottom:2.5rem}
 .event-card .text h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.45rem;color:var(--ink);margin-bottom:.6rem}
@@ -156,6 +188,7 @@ section:first-of-type{border-top:none}
 .news-date{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums;padding-top:.15rem}
 .news-body h4{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.15rem;color:var(--ink);margin-bottom:.4rem;line-height:1.3}
 .news-body p{font-size:.97rem;color:var(--ink-soft);margin-bottom:0}
+.news-body p + p{margin-top:.65rem}
 .news-body a.more{display:inline-block;margin-top:.5rem;color:var(--accent);font-size:.85rem;font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
 .news-body a.more:hover{border-bottom-color:var(--accent)}
 
@@ -176,15 +209,12 @@ footer.site a{color:var(--accent-2);text-decoration:none}
 footer.site a:hover{color:var(--paper)}
 footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;color:rgba(251,249,244,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 
-/* SESAC collaboration box */
-.collab-box{display:flex;align-items:center;gap:.85rem;background:#fff;border:1px solid var(--rule);border-radius:4px;padding:.75rem 1.1rem;text-decoration:none;color:var(--ink-soft);font-size:.82rem;line-height:1.45;max-width:340px;transition:border-color .2s,box-shadow .2s;align-self:center;margin-left:auto}
-.collab-box:hover{border-color:var(--accent);box-shadow:0 4px 16px -8px rgba(176,133,52,.28)}
-.collab-box img{width:100px;align-self:stretch;object-fit:contain;flex-shrink:0;border-radius:2px}
-.collab-box strong{color:var(--ink);font-weight:600}
-
 /* Responsive */
 @media (max-width:960px){
   .gallery{grid-template-columns:repeat(3,1fr)}
+  .hero-intro{grid-template-columns:minmax(0,1fr) minmax(230px,34%);gap:2rem}
+  .hero-visual{min-height:260px}
+  .hero-visual img{max-height:310px}
 }
 @media (max-width:860px){
   .section-head,.section-body{grid-template-columns:1fr;gap:1rem}
@@ -194,12 +224,18 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
   nav.primary{gap:1rem}
   .news-item{grid-template-columns:1fr;gap:.4rem}
   .hero{padding:3rem 0 2rem}
+  .hero-intro{grid-template-columns:1fr;gap:1.8rem}
+  .hero-copy{align-self:auto}
+  .hero-visual{justify-content:flex-start;min-height:auto}
+  .hero-visual img{max-width:420px;max-height:none;height:auto;object-position:left center}
   .mission-hub{grid-template-columns:1fr}
 }
 @media (max-width:520px){
   .wrap{padding:0 1.3rem}
   .topbar-inner{padding:.9rem 1.3rem}
   nav.primary a{font-size:.78rem}
+  .hero-visual img{max-width:100%}
+  .collaborator-grid{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(2,1fr)}
   .hero-meta{gap:.8rem 1.5rem}
   section{padding:3.5rem 0}
@@ -215,7 +251,7 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
       <a href="#about">About</a>
       <a href="#what">What We Do</a>
       <a href="#inauguration">Inauguration</a>
-      <a href="#news">News</a>
+      <a href="news.html">News</a>
       <a href="#visit">Visit</a>
     </nav>
   </div>
@@ -225,18 +261,63 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
 
 <section class="hero" style="border-top:none">
   <div class="wrap">
-    <div class="eyebrow">Department of Human Geography · Lund University</div>
-    <h1>Hägerstrand Lab</h1>
-    <div class="subtitle">Computational Inquiry in Human Geography</div>
-    <p class="lede">A newly founded research infrastructure at the Department of Human Geography, established to bring data, code, and ideas into proximity with the fundamental questions of human geography.</p>
+    <div class="hero-intro">
+      <div class="hero-copy">
+        <div class="eyebrow">Department of Human Geography · Lund University</div>
+        <h1>Hägerstrand Lab</h1>
+        <div class="subtitle">Computational Inquiry in Human Geography</div>
+        <p class="lede">A newly founded research infrastructure at the Department of Human Geography, established to bring data, code, and ideas into proximity with the fundamental questions of human geography.</p>
+      </div>
+      <div class="hero-visual">
+        <img src="logo.png" alt="Hägerstrand Lab logo with time-geography paths, satellite data, computational grid, and social science figures">
+      </div>
+    </div>
     <div class="hero-meta">
       <span><strong>Location</strong>Room 42, KEG · Geocentrum I<br>Sölvegatan 10, 223 62 Lund</span>
       <span><strong>Founded</strong>May 2026</span>
       <span><strong>Contact</strong><a href="mailto:philipp.stark@keg.lu.se" style="color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)">philipp.stark@keg.lu.se</a></span>
-      <a href="https://sesac.se" target="_blank" rel="noopener" class="collab-box">
-        <img src="SESAC.png" alt="SESAC logo">
-        <span>In collaboration with the <strong>Swedish Competence Centre for Satellite-Enabled Social Science Analytics (SESAC)</strong></span>
-      </a>
+    </div>
+
+    <div class="hero-collaborators" id="collaborators">
+      <div class="collab-kicker">Collaborators</div>
+      <p>The Hägerstrand Lab is developed in conversation with centres, infrastructures, and partners that support data-intensive, AI-oriented, and computationally curious social science.</p>
+
+      <div class="collaborator-grid" aria-label="Collaborating organizations">
+        <a class="collaborator-card" href="https://sesac.se" target="_blank" rel="noopener">
+          <img src="collab_logos/SESAC.png" alt="SESAC logo">
+          <strong>Swedish Competence Centre for Satellite-Enabled Social Science Analytics</strong>
+          <small>SESAC</small>
+        </a>
+
+        <a class="collaborator-card text-only" href="https://www.sam.lu.se/en/research/lund-social-science-methods-centre/computational-social-science" target="_blank" rel="noopener">
+          <strong>Lund Social Science Methods Centre</strong>
+          <small>Computational Social Science</small>
+        </a>
+
+        <a class="collaborator-card" href="https://www.lansforsakringar.se/stockholm/privat/om-oss/forskning/om/" target="_blank" rel="noopener">
+          <img src="collab_logos/länsförsäkringar.png" alt="Länsförsäkringar logo">
+          <strong>Länsförsäkringar</strong>
+          <small>Research</small>
+        </a>
+
+        <a class="collaborator-card" href="https://www.ai.lu.se/" target="_blank" rel="noopener">
+          <img src="collab_logos/ailund.png" alt="AI Lund logo">
+          <strong>AI Lund</strong>
+          <small>Lund University</small>
+        </a>
+
+        <a class="collaborator-card" href="https://wasp-hs.org/" target="_blank" rel="noopener">
+          <img src="collab_logos/wasphs.png" alt="WASP-HS logo">
+          <strong>WASP-HS</strong>
+          <small>AI, Humanities and Society</small>
+        </a>
+
+        <a class="collaborator-card" href="https://www.lunarc.lu.se/start" target="_blank" rel="noopener">
+          <img src="collab_logos/lunarc.png" alt="LUNARC logo">
+          <strong>LUNARC</strong>
+          <small>Scientific Computing</small>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -362,68 +443,10 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
   </div>
 </section>
 
-<!--
-   ADDING A NEWS ENTRY
-   Copy one of the <article class="news-item">...</article> blocks below,
-   paste it at the TOP of .news-list (newest first), then edit the
-   date, headline, and body. Keep entries short; link out for longer posts.
--->
-<section id="news">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-label">04 — News</div>
-      <h2>What's happening in the lab.</h2>
-    </div>
-    <div class="section-body">
-      <div></div>
-      <div class="body">
-        <div class="news-list">
-
-          <article class="news-item">
-            <div class="news-date">5 May 2026</div>
-            <div class="news-body">
-              <h4>The lab is open.</h4>
-              <p>The Hägerstrand Lab held its inauguration in Room 42 on 5 May 2026. Thanks to everyone who came, presented, and stayed for cake. Photos and a short recap are in the section above.</p>
-              <a href="#inauguration" class="more">See the recap →</a>
-            </div>
-          </article>
-
-          <article class="news-item">
-            <div class="news-date">April 2026</div>
-            <div class="news-body">
-              <h4>Welcoming new colleagues</h4>
-              <p>
-                <a href="https://yuan-liao.com/" target="_blank" rel="noopener">Yuan</a>,
-                <a href="https://hongyeehh.github.io/" target="_blank" rel="noopener">Ye</a>,
-                <a href="https://www.linkedin.com/in/melissa-cardonaag/" target="_blank" rel="noopener">Melissa</a>
-                &amp;
-                <a href="https://www.lunduniversity.lu.se/lucat/user/f163ccdac812c2a31e2555b764f283ca" target="_blank" rel="noopener">Fabio</a>
-                joined the department in the lead-up to the inauguration. Their work spans mobility data science, GeoAI, spatial analytics, urban inequality, housing justice, and computational approaches to understanding social and spatial life.
-              </p>
-            </div>
-          </article>
-
-          <!-- NEWS ENTRY TEMPLATE — copy, paste above, edit:
-          <article class="news-item">
-            <div class="news-date">Month YYYY</div>
-            <div class="news-body">
-              <h4>Headline goes here.</h4>
-              <p>Short paragraph describing the news. Keep it readable in under four lines.</p>
-              <a href="#" class="more">Optional link →</a>
-            </div>
-          </article>
-          -->
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="visit">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-label">05 — Visit</div>
+      <div class="section-label">04 — Visit</div>
       <h2>Find us, write to us.</h2>
     </div>
     <div class="section-body">
