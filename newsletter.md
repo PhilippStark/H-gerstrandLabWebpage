@@ -24,8 +24,6 @@ Several research ideas are already emerging around the lab, supported by our clo
 
 At an [AI Lund lunch seminar](https://www.ai.lu.se/2026-04-29), we presented a funded project on *Tracing Industrial Change Over Time: Harmonizing Industry Classifications in Swedish Register Data for Machine Learning*. The work focuses on temporal harmonization of Swedish register data and how changing industrial classifications can be made usable for machine-learning analysis across time.
 
-The Hägerstrand Lab also visited the LU eScience Hub event [*Research and Development within AI and Machine Learning*](https://www.compile.lu.se/calendar/lu-escience-hub-research-and-development-within-ai-and-machine-learning) on 19 May 2026. Ola Hall presented *Change Detection from Space* as a representative of SESAC and in connection with the Hägerstrand Lab. The event was a valuable opportunity to present to the LU eScience community, and we look forward to extending our contacts and networks in this direction. The day also offered many interesting presentations, giving us a broad set of impressions and ideas to bring back into the lab's work.
-
 Our paper on [*Using Text-Based Life Trajectories from Swedish Register Data to Predict Residential Mobility with Pretrained Transformers*](https://arxiv.org/abs/2512.07865) has been published in the proceedings of PAKDD 2026 and was presented at the conference in Hong Kong. The work transforms longitudinal register records into text-based life trajectories, making it possible to use modern NLP and transformer models to study long-term life-course dynamics at population scale.
 
 ## C2S Nordics and the wider community

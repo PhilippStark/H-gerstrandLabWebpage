@@ -83,6 +83,34 @@ section:first-of-type{border-top:none}
 .news-body a.more{display:inline-block;margin-top:.5rem;color:var(--accent);font-size:.85rem;font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
 .news-body a.more:hover{border-bottom-color:var(--accent)}
 
+/* Announcements / individual posts */
+:target{scroll-margin-top:96px}
+.post{padding:2rem 0;border-top:1px solid var(--rule-soft);scroll-margin-top:96px}
+.post:first-child{border-top:none;padding-top:0}
+.post-meta{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin-bottom:.75rem}
+.post-tag{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--accent);border-radius:2px;padding:.24rem .55rem}
+.post-date{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
+.post-title{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.4rem,2.7vw,1.9rem);line-height:1.22;letter-spacing:-.01em;color:var(--ink);margin-bottom:.95rem}
+.post-title a{text-decoration:none;border-bottom:1px solid transparent}
+.post-title a:hover{border-bottom-color:var(--accent)}
+.post-title a::after{content:"#";margin-left:.35rem;color:var(--accent);opacity:0;font-family:'Inter',system-ui,sans-serif;font-size:.7em;font-weight:500;transition:opacity .2s}
+.post-title a:hover::after{opacity:1}
+.post p{font-size:1.02rem;color:var(--ink-soft);margin-bottom:1rem}
+.post p:last-child{margin-bottom:0}
+.post p a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
+.post p a:hover{border-bottom-color:var(--accent)}
+.post-share{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:1.5rem;padding-top:1rem;border-top:1px dashed var(--rule)}
+.post-share .share-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.post-permalink{font-size:.82rem;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--rule);border-radius:3px;padding:.3rem .55rem;word-break:break-all}
+.copy-link{font-family:inherit;font-size:.79rem;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:3px;padding:.35rem .75rem;cursor:pointer;transition:border-color .2s,color .2s}
+.copy-link:hover{border-color:var(--accent);color:var(--accent)}
+.copy-link.copied{border-color:var(--accent);color:var(--accent)}
+.post:target,.news-item:target{animation:anchorFlash 2.8s ease-out 1}
+@keyframes anchorFlash{
+  0%,18%{background:rgba(212,169,69,.16);box-shadow:-14px 0 0 rgba(212,169,69,.16),14px 0 0 rgba(212,169,69,.16)}
+  100%{background:transparent;box-shadow:none}
+}
+
 /* Footer */
 footer.site{background:var(--ink);color:rgba(251,249,244,.7);padding:3rem 2rem 2rem;margin-top:2rem}
 footer.site .wrap{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-end}
@@ -128,9 +156,53 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
 <section class="hero" style="border-top:none">
   <div class="wrap">
     <div class="eyebrow">Department of Human Geography · Lund University</div>
-    <h1>Hägerstrand Newsletter</h1>
-    <div class="subtitle">Early summer 2026</div>
-    <p class="lede">A fuller update on the lab's launch, emerging projects, collaborations, meetings, and what comes next after the summer break.</p>
+    <h1>News &amp; Announcements</h1>
+    <div class="subtitle">From the Hägerstrand Lab</div>
+    <p class="lede">Upcoming visits and events, together with the lab newsletter on the launch, emerging projects, collaborations, and what comes next.</p>
+  </div>
+</section>
+
+<!--
+   ADDING AN ANNOUNCEMENT
+   Copy one <article class="post"> block below, paste it as the FIRST item in
+   .announce-list, and give it a NEW, unique id (lowercase, words-joined-by-hyphens).
+   That id is the shareable link:  https://hagerstrandlab.se/news.html#your-new-id
+   Remember to put the same URL in the data-copy attribute of the "Copy link" button.
+-->
+<section id="announcements">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Announcements</div>
+      <h2>Visits, events, and open invitations.</h2>
+    </div>
+    <div class="section-body">
+      <div></div>
+      <div class="body announce-list">
+
+        <article class="post" id="anders-elias-visit">
+          <div class="post-meta">
+            <span class="post-tag">Upcoming</span>
+            <span class="post-date">18 November 2026</span>
+          </div>
+          <h2 class="post-title"><a href="#anders-elias-visit" aria-label="Permalink to this announcement">Anders Elias visits the Department of Human Geography</a></h2>
+
+          <p>On 18 November 2026, the Department of Human Geography welcomes Anders Elias, founder and CEO of <a href="https://aelia.se/" target="_blank" rel="noopener">Aelia Consulting</a>, for a visit and discussions.</p>
+
+          <p>Anders works at the intersection of generative AI, open data, geographic analysis, and societal planning. In 2026, he was named &ldquo;Årets AI-inspiratör&rdquo; (AI Inspirer of the Year) at the <a href="https://www.aiarena.se/nyheter/anders-elias-om-ai-arena-awards-2026" target="_blank" rel="noopener">AI Arena Awards</a>, recognising his work in demonstrating how AI and open data can be used in practice for societal analysis and planning.</p>
+
+          <p>The visit takes place just ahead of the <a href="https://sesac.se/hackathon/" target="_blank" rel="noopener">Society from Space Challenge 2026</a>, organised by SESAC on 19&ndash;20 November in Lund. The two-day challenge brings together Earth observation, data science, social sciences, humanities, planning, and practice to explore how satellite and geospatial data can be combined with human and local knowledge to address real-world societal and urban challenges.</p>
+
+          <div class="newsletter-callout"><strong>Take part</strong>We warmly encourage students, researchers, and practitioners interested in these topics to explore the <a href="https://sesac.se/hackathon/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500;text-decoration:none">SESAC Challenge</a> and take part.</div>
+
+          <div class="post-share">
+            <span class="share-label">Direct link</span>
+            <span class="post-permalink">https://hagerstrandlab.se/news.html#anders-elias-visit</span>
+            <button type="button" class="copy-link" data-copy="https://hagerstrandlab.se/news.html#anders-elias-visit">Copy link</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
   </div>
 </section>
 
@@ -149,13 +221,56 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
       <div></div>
       <div class="body">
         <article class="newsletter" id="newsletterArticle" data-markdown-src="newsletter.md">
-          <p class="newsletter-status">Loading newsletter...</p>
+          <div class="newsletter-meta">June 2026 · Hägerstrand Lab</div>
+          <p class="lead">The Hägerstrand Lab has moved from launch into its first working rhythm. The lab is becoming a shared place for computational human geography: a place where computation is not defined narrowly, but remains open as a family of practices shaped by the people, methods, data, and questions involved.</p>
+
+          <div class="newsletter-block">
+            <h3>Looking back at the inauguration</h3>
+            <p>We formally opened the lab on 5 May 2026 in Room 42 at Geocentrum I. The afternoon brought together colleagues and guests for welcoming words, project conversations, fika, and a first shared sense of what the lab can become.</p>
+            <p>Photos from the afternoon and the invitation are available in the <a href="index.html#inauguration">inauguration recap</a>, together with the <a href="Inauguration_Hägerstrand_Lab.pdf" target="_blank" rel="noopener">event invitation</a>.</p>
+          </div>
+
+          <div class="newsletter-block">
+            <h3>Master's thesis ideas are welcome</h3>
+            <div class="newsletter-callout"><strong>Interested in a master's thesis?</strong> If you want to answer established or emerging social-science questions with computational methods, get in touch. We are especially interested in satellite-enabled social science, computational social science, quantitative methods, mobility and register data, and AI-supported text analysis, including qualitative and mixed-methods approaches. We already have a few possible thesis directions and can help shape a topic in the lab's new environment. Write to <a href="mailto:philipp.stark@keg.lu.se">philipp.stark@keg.lu.se</a>.</div>
+          </div>
+
+          <div class="newsletter-block">
+            <h3>Starting projects and new collaborations</h3>
+            <p>Several research ideas are already emerging around the lab, supported by our close collaboration with the <a href="https://www.sam.lu.se/en/research/lund-social-science-methods-centre/computational-social-science" target="_blank" rel="noopener">Lund Social Science Methods Centre</a> and its research engineers. This gives the lab a stronger methodological and technical base for projects that need both social-science interpretation and computational infrastructure.</p>
+            <ul>
+              <li><strong>Large-scale media analysis and policy implementation:</strong> We are exploring regional differences in policy implementation through large-scale media analysis, using computational text methods to trace how policy debates and implementation processes vary across places.</li>
+              <li><strong>Brazilian Census data and infrastructure news events:</strong> Another starting point combines Brazilian Census data with news-event mining around infrastructure projects, connecting structured demographic information with unstructured event narratives.</li>
+              <li><strong>Register and cellphone data for knowledge spillovers:</strong> A new project idea combines register data with cellphone-based mobility patterns to investigate industrial knowledge spillovers and the spatial dynamics of industrial change.</li>
+            </ul>
+          </div>
+
+          <div class="newsletter-block">
+            <h3>Talks, papers, and methods in motion</h3>
+            <p>At an <a href="https://www.ai.lu.se/2026-04-29" target="_blank" rel="noopener">AI Lund lunch seminar</a>, we presented a funded project on <em>Tracing Industrial Change Over Time: Harmonizing Industry Classifications in Swedish Register Data for Machine Learning</em>. The work focuses on temporal harmonization of Swedish register data and how changing industrial classifications can be made usable for machine-learning analysis across time.</p>
+            <p>Our paper on <a href="https://arxiv.org/abs/2512.07865" target="_blank" rel="noopener"><em>Using Text-Based Life Trajectories from Swedish Register Data to Predict Residential Mobility with Pretrained Transformers</em></a> has been published in the proceedings of PAKDD 2026 and was presented at the conference in Hong Kong. The work transforms longitudinal register records into text-based life trajectories, making it possible to use modern NLP and transformer models to study long-term life-course dynamics at population scale.</p>
+          </div>
+
+          <div class="newsletter-block">
+            <h3>C2S Nordics and the wider community</h3>
+            <p>We are preparing to take part in <a href="https://nosocss.org/conference.html" target="_blank" rel="noopener">C2S Nordics</a>. Abstracts have been submitted, and we hope to use the event to connect the Hägerstrand Lab with the wider Nordic computational social science community.</p>
+          </div>
+
+          <div class="newsletter-block">
+            <h3>Biweekly meetings</h3>
+            <p>The lab's biweekly meetings have started. For now, they are a practical space for exchange, coordination, and learning from ongoing work. In the future, we plan to extend the format by inviting more people and hosting invited speakers around computational methods, data infrastructures, and social-science applications.</p>
+          </div>
+
+          <div class="newsletter-block">
+            <h3>Back in August</h3>
+            <p>After the summer break, we will return in August with more details on the first projects, thesis opportunities, meetings, and collaborations. Until then, we wish everyone a good summer and a happy midsummer.</p>
+          </div>
         </article>
 
         <div class="archive-title">Earlier notes</div>
         <div class="news-list">
 
-          <article class="news-item">
+          <article class="news-item" id="lab-is-open">
             <div class="news-date">5 May 2026</div>
             <div class="news-body">
               <h4>The lab is open.</h4>
@@ -164,7 +279,7 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
             </div>
           </article>
 
-          <article class="news-item">
+          <article class="news-item" id="new-colleagues">
             <div class="news-date">April 2026</div>
             <div class="news-body">
               <h4>Welcoming new colleagues</h4>
@@ -213,6 +328,27 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.copy-link').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const url = btn.dataset.copy;
+      const done = function(){
+        const original = btn.textContent;
+        btn.textContent = 'Link copied';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = original; btn.classList.remove('copied'); }, 2000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(function(){ window.prompt('Copy this link:', url); });
+      } else {
+        window.prompt('Copy this link:', url);
+      }
+    });
+  });
+})();
+</script>
 
 <script>
 (function(){
@@ -336,7 +472,7 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
       article.innerHTML = renderMarkdown(markdown);
     })
     .catch(() => {
-      article.innerHTML = '<p class="newsletter-status">The newsletter could not be loaded. Open <a href="newsletter.md">newsletter.md</a> directly.</p>';
+      article.setAttribute('data-markdown-status','fallback');
     });
 })();
 </script>
