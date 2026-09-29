@@ -256,15 +256,21 @@ window.HL_OPPORTUNITIES = [
   {
     "id": "agile-2027-lund",
     "type": "conference",
-    "status": "upcoming",
+    "status": "open",
     "title": "AGILE 2027 — hosted in Lund",
     "organizer": "AGILE (Association of Geographic Information Laboratories in Europe) & ISDE",
-    "url": "https://agile-gi.eu/conference-2027/call-for-papers-2027/call-for-papers-2027",
-    "deadline": null,
-    "deadlineLabel": "Deadlines TBA (see Important Dates)",
+    "url": "https://agile-gi.eu/conference-2027/important-dates-2027",
+    "deadline": "2027-01-10",
+    "deadlineLabel": "Full papers & workshop proposals",
+    "otherDates": [
+      { "label": "Short papers & posters", "date": "2027-02-12" },
+      { "label": "Travel grant applications", "date": "2027-03-28" },
+      { "label": "Early-bird registration", "date": "2027-04-30" },
+      { "label": "Pre-conference workshops", "date": "2027-06-21" }
+    ],
     "eventDates": "21–24 Jun 2027",
     "location": "Lund, Sweden (Lund University)",
-    "summary": "Europe's GIScience conference comes to Lund: \"Spatial Intelligence and Digital Earth for Sustainable Future\". Full/short papers, posters, published-article and education tracks. A chance to host a lab workshop at home.",
+    "summary": "Europe's GIScience conference comes to Lund: \"Spatial Intelligence and Digital Earth for Sustainable Future\". Full/short papers, posters, published-article and education tracks. A chance to host a pre-conference lab workshop at home. Deadlines end 23:59 CET.",
     "tags": ["GIScience", "Lund", "workshop"],
     "added": "2026-09-29"
   },
