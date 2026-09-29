@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calls &amp; Conferences — Hägerstrand Lab</title>
+<meta name="description" content="Upcoming funding calls, conferences and special issues curated by the Hägerstrand Lab at the Department of Human Geography, Lund University.">
+<meta property="og:image" content="context/Computational_Lab_Vision.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:root{
+  --ink:#14213d; --ink-soft:#2b3556;
+  --paper:#fbf9f4; --paper-2:#f3efe6;
+  --rule:#e3ddcf; --rule-soft:#ece7da;
+  --muted:#5a5d6b; --text:#1f2438;
+  --accent:#b08534; --accent-2:#d4a945;
+  --teal:#2f6b6a; --urgent:#a4452c;
+  --maxw:1180px;
+}
+body{font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--paper);color:var(--text);line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+
+/* Topbar (shared with site) */
+.topbar{border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50;backdrop-filter:saturate(120%) blur(6px);background:rgba(251,249,244,.92)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 2rem;max-width:var(--maxw);margin:0 auto}
+.brand{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--ink);letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.brand .dot{color:var(--accent)}
+nav.primary{display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:flex-end}
+nav.primary a{font-size:.85rem;font-weight:500;color:var(--ink-soft);text-decoration:none;letter-spacing:.02em;border-bottom:1px solid transparent;padding-bottom:2px;transition:color .2s,border-color .2s}
+nav.primary a:hover,nav.primary a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* Hero */
+.hero{padding:4.5rem 0 2.5rem}
+.hero .eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.1rem}
+.hero h1{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(2.4rem,5.6vw,4.1rem);line-height:1.05;letter-spacing:-.015em;color:var(--ink);margin-bottom:1rem}
+.hero .subtitle{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:clamp(1.15rem,2.2vw,1.45rem);color:var(--accent);margin-bottom:1.2rem}
+.hero .lede{font-size:1.1rem;line-height:1.6;color:var(--ink-soft);max-width:700px}
+.hero-meta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem 2.2rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:1.4rem;align-items:flex-end}
+.hero-meta span strong{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--ink);font-weight:600;margin-bottom:.2rem}
+.hero-meta .num{font-family:'Source Serif 4',Georgia,serif;font-size:1.5rem;color:var(--ink);font-weight:600;line-height:1}
+.hero-meta .push{margin-left:auto}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--paper);text-decoration:none;font-family:inherit;font-size:.84rem;font-weight:500;letter-spacing:.02em;padding:.62rem 1.1rem;border-radius:4px;border:1px solid var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* Sections */
+section{padding:3.2rem 0;border-top:1px solid var(--rule)}
+.kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1.1rem;display:flex;align-items:center;gap:.8rem}
+.kicker::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* Next-up cards */
+.nextup{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.nu-card{background:#fff;border:1px solid var(--rule);border-radius:4px;padding:1.25rem 1.35rem 1.2rem;display:flex;flex-direction:column;gap:.55rem;text-decoration:none;color:inherit;transition:border-color .25s,box-shadow .25s,transform .25s;position:relative;overflow:hidden}
+.nu-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--type-color,var(--ink))}
+.nu-card:hover{border-color:var(--accent);box-shadow:0 8px 24px -12px rgba(20,33,61,.28);transform:translateY(-1px)}
+.nu-count{display:flex;align-items:baseline;gap:.45rem}
+.nu-count .n{font-family:'Source Serif 4',Georgia,serif;font-size:2.3rem;font-weight:600;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.nu-count .u{font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.nu-card.urgent .nu-count .n{color:var(--urgent)}
+.nu-card h3{font-family:'Source Serif 4',Georgia,serif;font-size:1.08rem;line-height:1.3;color:var(--ink);font-weight:600}
+.nu-card .when{font-size:.82rem;color:var(--muted)}
+
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;gap:.8rem 1rem;align-items:center;justify-content:space-between;margin-bottom:1.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{font-family:inherit;font-size:.82rem;font-weight:500;color:var(--ink-soft);background:#fff;border:1px solid var(--rule);border-radius:999px;padding:.42rem .9rem;cursor:pointer;transition:all .2s;display:inline-flex;gap:.45rem;align-items:center}
+.chip .c{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.chip[aria-pressed="true"] .c{color:rgba(251,249,244,.65)}
+.search{flex:0 1 280px;position:relative}
+.search input{width:100%;font-family:inherit;font-size:.88rem;padding:.55rem .9rem .55rem 2.1rem;border:1px solid var(--rule);border-radius:4px;background:#fff;color:var(--text)}
+.search input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(176,133,52,.15)}
+.search svg{position:absolute;left:.7rem;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--muted)}
+
+/* Month groups */
+.month{margin-top:2.2rem}
+.month:first-child{margin-top:0}
+.month-head{font-family:'Source Serif 4',Georgia,serif;font-size:1.35rem;color:var(--ink);font-weight:600;padding-bottom:.55rem;border-bottom:2px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline}
+.month-head small{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.month-note{font-size:.9rem;color:var(--muted);margin:.7rem 0 0}
+
+/* Item */
+.opp{display:grid;grid-template-columns:92px minmax(0,1fr);gap:1.6rem;padding:1.5rem 0;border-bottom:1px solid var(--rule-soft);scroll-margin-top:90px}
+.opp:last-child{border-bottom:none}
+.opp:target{animation:flash 2.6s ease-out 1}
+@keyframes flash{0%,20%{background:rgba(212,169,69,.14)}100%{background:transparent}}
+.opp-date{text-align:center;border:1px solid var(--rule);border-radius:4px;background:#fff;padding:.6rem .3rem .55rem;align-self:start;display:flex;flex-direction:column;gap:.1rem}
+.opp-date .d{font-family:'Source Serif 4',Georgia,serif;font-size:1.9rem;line-height:1;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.opp-date .m{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.opp-date .left{margin-top:.35rem;font-size:.7rem;font-weight:600;color:var(--muted);border-top:1px solid var(--rule-soft);padding-top:.35rem}
+.opp-date.urgent{border-color:rgba(164,69,44,.45)}
+.opp-date.urgent .left{color:var(--urgent)}
+.opp-date.soon .left{color:var(--accent)}
+.opp-date.nodate .d{font-size:1.25rem;padding:.25rem 0}
+.opp-date.past{opacity:.6}
+
+.opp-top{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem .8rem;margin-bottom:.45rem}
+.tag{font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--type-color);border-radius:2px;padding:.22rem .5rem}
+.status{font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--ink-soft);border:1px solid var(--rule);border-radius:2px;padding:.18rem .45rem;background:var(--paper-2)}
+.org{font-size:.84rem;color:var(--muted)}
+.opp h3{font-family:'Source Serif 4',Georgia,serif;font-size:1.28rem;line-height:1.28;color:var(--ink);font-weight:600;margin-bottom:.45rem}
+.opp h3 a{text-decoration:none;background-image:linear-gradient(var(--accent),var(--accent));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+.opp h3 a:hover{background-size:100% 1px}
+.opp h3 .ext{font-family:'Inter',sans-serif;font-size:.75em;color:var(--accent);margin-left:.2rem}
+.opp p.sum{font-size:.97rem;color:var(--ink-soft);max-width:760px}
+
+.facts{display:flex;flex-wrap:wrap;gap:.45rem .5rem;margin-top:.85rem}
+.fact{font-size:.8rem;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--rule);border-radius:999px;padding:.28rem .7rem;line-height:1.4}
+.fact b{color:var(--ink);font-weight:600;margin-right:.3rem}
+.fact.dl{background:#fff;border-color:var(--ink)}
+.dates-more{list-style:none;margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.3rem 1.2rem;font-size:.82rem;color:var(--muted)}
+.dates-more li::before{content:"◦ ";color:var(--accent)}
+.dates-more li.gone{text-decoration:line-through;opacity:.6}
+
+.opp-actions{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;margin-top:.95rem;align-items:center}
+.alink{font-size:.83rem;font-weight:500;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;cursor:pointer;padding:0}
+.alink:hover{border-bottom-color:var(--accent)}
+.alink.muted{color:var(--muted)}
+.alink.muted:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+.empty{padding:2rem;text-align:center;color:var(--muted);background:var(--paper-2);border:1px dashed var(--rule);border-radius:4px}
+
+details.past{margin-top:2.6rem;border-top:1px solid var(--rule);padding-top:1.4rem}
+details.past summary{cursor:pointer;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;list-style:none}
+details.past summary::-webkit-details-marker{display:none}
+details.past summary::before{content:"+ ";color:var(--accent)}
+details.past[open] summary::before{content:"– "}
+
+/* How it works */
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.how-card{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:1.4rem 1.5rem}
+.how-card .ic{font-size:1.2rem;color:var(--accent);margin-bottom:.5rem;line-height:1}
+.how-card h4{font-size:.98rem;color:var(--ink);font-weight:600;margin-bottom:.35rem}
+.how-card p{font-size:.9rem;color:var(--ink-soft)}
+.how-card a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid transparent}
+.how-card a:hover{border-bottom-color:var(--accent)}
+
+/* Footer */
+footer.site{background:var(--ink);color:rgba(251,249,244,.7);padding:3rem 2rem 2rem;margin-top:2rem}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-end}
+footer.site h5{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:1.1rem;color:var(--paper);margin-bottom:.4rem}
+footer.site p{font-size:.85rem;line-height:1.55}
+footer.site a{color:var(--accent-2);text-decoration:none}
+footer.site a:hover{color:var(--paper)}
+footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;color:rgba(251,249,244,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,20px);background:var(--ink);color:var(--paper);font-size:.85rem;padding:.6rem 1rem;border-radius:4px;opacity:0;transition:all .25s;pointer-events:none;z-index:200}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Responsive */
+@media (max-width:900px){
+  .nextup,.how{grid-template-columns:1fr}
+  nav.primary{gap:1rem}
+}
+@media (max-width:640px){
+  .wrap{padding:0 1rem}
+  .topbar-inner{padding:.8rem 1rem;flex-direction:column;align-items:flex-start;gap:.4rem}
+  nav.primary{justify-content:flex-start;gap:.35rem 1rem}
+  nav.primary a{font-size:.78rem}
+  .hero{padding:2.6rem 0 1.8rem}
+  .hero-meta .push{margin-left:0}
+  .opp{grid-template-columns:1fr;gap:.7rem}
+  .opp-date{flex-direction:row;align-items:baseline;gap:.5rem;text-align:left;padding:.45rem .7rem;justify-self:start}
+  .opp-date .d{font-size:1.3rem}
+  .opp-date .left{margin:0 0 0 .3rem;border-top:none;padding:0 0 0 .6rem;border-left:1px solid var(--rule-soft)}
+  .search{flex:1 1 100%}
+  section{padding:2.4rem 0}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">Hägerstrand<span class="dot"> · </span>Lab</a>
+    <nav class="primary">
+      <a href="index.html#research">Research</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#what">What We Do</a>
+      <a href="index.html#inauguration">Inauguration</a>
+      <a href="news.html">News</a>
+      <a href="calls.html" aria-current="page">Calls &amp; Conferences</a>
+      <a href="index.html#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" style="border-top:none">
+  <div class="wrap">
+    <div class="eyebrow">Opportunities · curated by the lab</div>
+    <h1>Calls &amp; Conferences</h1>
+    <div class="subtitle">Funding, meetings and special issues worth a closer look</div>
+    <p class="lede">A shared overview of upcoming grant calls, conferences and journal special issues that fit computational work in human geography and the social sciences — broadly understood. The list is curated by hand and reviewed weekly.</p>
+    <div class="hero-meta">
+      <span><strong>Open now</strong><span class="num" id="statOpen">–</span></span>
+      <span><strong>Due in 30 days</strong><span class="num" id="statSoon">–</span></span>
+      <span><strong>Last reviewed</strong><span id="statUpdated">–</span></span>
+      <span class="push"><a class="btn ghost" id="suggestTop" href="#">Suggest a call or conference →</a></span>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <div class="kicker">Next deadlines</div>
+    <div class="nextup" id="nextup"></div>
+  </div>
+</section>
+
+<section id="list">
+  <div class="wrap">
+    <div class="kicker">All opportunities</div>
+    <div class="controls">
+      <div class="chips" role="group" aria-label="Filter by type" id="chips"></div>
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="q" placeholder="Search e.g. GeoAI, Lund, postdoc" aria-label="Search opportunities">
+      </label>
+    </div>
+    <div id="groups"></div>
+    <details class="past" id="pastWrap">
+      <summary id="pastSummary">Past deadlines</summary>
+      <div id="past"></div>
+    </details>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="kicker">How this list works</div>
+    <div class="how">
+      <div class="how-card">
+        <div class="ic">◈</div>
+        <h4>Curated, not scraped</h4>
+        <p>Nothing on this page updates itself. Candidates are gathered in a weekly search, checked against the official call pages, and only then added by hand.</p>
+      </div>
+      <div class="how-card">
+        <div class="ic">⟷</div>
+        <h4>Suggest something</h4>
+        <p>Seen a call, conference or special issue that belongs here? <a href="#" id="suggestCard">Send us the link</a> with a line on why it fits — that is all we need.</p>
+      </div>
+      <div class="how-card">
+        <div class="ic">↗</div>
+        <h4>Always check the source</h4>
+        <p>Dates are copied from official pages but can change. Follow the link before you plan around a deadline, and use <em>Add to calendar</em> to keep it in view.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <h5>Hägerstrand Lab</h5>
+      <p>Department of Human Geography<br>Lund University · Sweden</p>
+    </div>
+    <div>
+      <p><a href="https://www.keg.lu.se" target="_blank" rel="noopener">keg.lu.se ↗</a><br><a href="mailto:philipp.stark@keg.lu.se">philipp.stark@keg.lu.se</a></p>
+    </div>
+    <div class="credit">
+      <span>© 2026 Hägerstrand Lab · Lund University</span>
+      <span>Named in tribute to Torsten Hägerstrand (1916–2004).</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data/opportunities.js"></script>
+<script>
+(function(){
+  const CONTACT = 'philipp.stark@keg.lu.se';
+  const TYPES = {
+    'call':          {label:'Funding call',  plural:'Funding calls',  color:'var(--ink)'},
+    'conference':    {label:'Conference',    plural:'Conferences',    color:'var(--accent)'},
+    'special-issue': {label:'Special issue', plural:'Special issues', color:'var(--teal)'}
+  };
+  const STATUS = {open:'Open', upcoming:'Opens soon', rolling:'Rolling', watch:'On our radar'};
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  const all = (window.HL_OPPORTUNITIES || []).filter(o => !o.hidden);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const parse = s => { if(!s) return null; const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+  const daysLeft = s => Math.round((parse(s) - today) / 864e5);
+  const fmt = (s, opts) => parse(s).toLocaleDateString('en-GB', opts || {day:'numeric', month:'short', year:'numeric'});
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const isPast = o => o.deadline && daysLeft(o.deadline) < 0;
+  const leftText = n => n === 0 ? 'Today' : n === 1 ? '1 day' : n + ' days';
+
+  // Stats
+  const live = all.filter(o => !isPast(o));
+  document.getElementById('statOpen').textContent = live.filter(o => o.status !== 'watch').length;
+  document.getElementById('statSoon').textContent = live.filter(o => o.deadline && daysLeft(o.deadline) <= 30).length;
+  document.getElementById('statUpdated').textContent = window.HL_UPDATED ? fmt(window.HL_UPDATED, {day:'numeric', month:'long', year:'numeric'}) : '–';
+
+  // Suggest (mailto)
+  const mail = 'mailto:' + CONTACT +
+    '?subject=' + encodeURIComponent('Suggestion for the Hägerstrand Lab calls page') +
+    '&body=' + encodeURIComponent('Link: \n\nType (call / conference / special issue): \n\nDeadline (if known): \n\nWhy it fits the lab: \n');
+  ['suggestTop','suggestCard'].forEach(id => document.getElementById(id).href = mail);
+
+  // Next up
+  const next = live.filter(o => o.deadline).sort((a,b) => a.deadline.localeCompare(b.deadline)).slice(0,3);
+  document.getElementById('nextup').innerHTML = next.map(o => {
+    const n = daysLeft(o.deadline);
+    return `<a class="nu-card${n <= 14 ? ' urgent' : ''}" href="#${esc(o.id)}" style="--type-color:${TYPES[o.type].color}">
+      <div class="nu-count"><span class="n">${n}</span><span class="u">${n === 1 ? 'day left' : 'days left'}</span></div>
+      <h3>${esc(o.title)}</h3>
+      <div class="when">${esc(o.deadlineLabel || 'Deadline')} · ${fmt(o.deadline)}</div>
+    </a>`;
+  }).join('') || '<div class="empty">No dated deadlines right now.</div>';
+
+  // Item renderer
+  function item(o){
+    const t = TYPES[o.type] || TYPES.call;
+    let dateBox;
+    if (o.deadline) {
+      const n = daysLeft(o.deadline), d = parse(o.deadline);
+      const cls = n < 0 ? 'past' : n <= 14 ? 'urgent' : n <= 45 ? 'soon' : '';
+      dateBox = `<div class="opp-date ${cls}"><span class="d">${d.getDate()}</span><span class="m">${MONTHS[d.getMonth()].slice(0,3)} ${String(d.getFullYear()).slice(2)}</span><span class="left">${n < 0 ? 'Closed' : leftText(n)}</span></div>`;
+    } else {
+      dateBox = `<div class="opp-date nodate"><span class="d">${o.status === 'rolling' ? '∞' : 'TBA'}</span><span class="m">${o.status === 'rolling' ? 'Rolling' : 'Date'}</span></div>`;
+    }
+    const facts = [];
+    if (o.deadline) facts.push(`<span class="fact dl"><b>${esc(o.deadlineLabel || 'Deadline')}</b>${fmt(o.deadline)}</span>`);
+    else if (o.deadlineLabel) facts.push(`<span class="fact dl"><b>Deadline</b>${esc(o.deadlineLabel)}</span>`);
+    if (o.opens && daysLeft(o.opens) > 0) facts.push(`<span class="fact"><b>Opens</b>${fmt(o.opens)}</span>`);
+    if (o.eventDates) facts.push(`<span class="fact"><b>When</b>${esc(o.eventDates)}</span>`);
+    if (o.location) facts.push(`<span class="fact"><b>Where</b>${esc(o.location)}</span>`);
+    if (o.amount) facts.push(`<span class="fact"><b>Funding</b>${esc(o.amount)}</span>`);
+    if (o.eligibility) facts.push(`<span class="fact"><b>${o.type === 'special-issue' ? 'Editors' : 'Who'}</b>${esc(o.eligibility.replace(/^Guest editors:\s*/,''))}</span>`);
+    const more = (o.otherDates || []).map(x => `<li class="${daysLeft(x.date) < 0 ? 'gone' : ''}">${esc(x.label)}: ${fmt(x.date)}</li>`).join('');
+    return `<article class="opp" id="${esc(o.id)}" style="--type-color:${t.color}">
+      ${dateBox}
+      <div class="opp-body">
+        <div class="opp-top"><span class="tag">${t.label}</span>${o.status && o.status !== 'open' ? `<span class="status">${STATUS[o.status] || esc(o.status)}</span>` : ''}<span class="org">${esc(o.organizer)}</span></div>
+        <h3><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.title)}<span class="ext">↗</span></a></h3>
+        <p class="sum">${esc(o.summary)}</p>
+        <div class="facts">${facts.join('')}</div>
+        ${more ? `<ul class="dates-more">${more}</ul>` : ''}
+        <div class="opp-actions">
+          <a class="alink" href="${esc(o.url)}" target="_blank" rel="noopener">Official page ↗</a>
+          ${o.deadline && daysLeft(o.deadline) >= 0 ? `<button class="alink" data-ics="${esc(o.id)}">Add deadline to calendar</button>` : ''}
+          <button class="alink muted" data-copy="${esc(o.id)}">Copy link</button>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  // Filters
+  let type = 'all', q = '';
+  const counts = {all: live.length};
+  live.forEach(o => counts[o.type] = (counts[o.type] || 0) + 1);
+  const chipDefs = [['all','All']].concat(Object.keys(TYPES).map(k => [k, TYPES[k].plural]));
+  const chipsEl = document.getElementById('chips');
+  chipsEl.innerHTML = chipDefs.map(([k,l]) => `<button class="chip" data-type="${k}" aria-pressed="${k === 'all'}">${l}<span class="c">${counts[k] || 0}</span></button>`).join('');
+  chipsEl.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    type = b.dataset.type;
+    chipsEl.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+    render();
+  });
+  document.getElementById('q').addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); render(); });
+
+  const match = o => (type === 'all' || o.type === type) &&
+    (!q || [o.title, o.organizer, o.summary, o.location, (o.tags || []).join(' ')].join(' ').toLowerCase().includes(q));
+
+  function render(){
+    const items = live.filter(match);
+    const dated = items.filter(o => o.deadline).sort((a,b) => a.deadline.localeCompare(b.deadline));
+    const undated = items.filter(o => !o.deadline && o.status !== 'watch');
+    const watch = items.filter(o => !o.deadline && o.status === 'watch');
+    const groups = [];
+    dated.forEach(o => {
+      const d = parse(o.deadline), key = d.getFullYear() + '-' + d.getMonth();
+      let g = groups.find(x => x.key === key);
+      if (!g) groups.push(g = {key, title: MONTHS[d.getMonth()] + ' ' + d.getFullYear(), items: []});
+      g.items.push(o);
+    });
+    if (undated.length) groups.push({title:'Rolling & dates to come', note:'Open on a rolling basis, or announced with deadlines still to be published.', items: undated});
+    if (watch.length) groups.push({title:'On our radar', note:'Recurring meetings we expect to open soon — we will add dates once they are announced.', items: watch});
+    document.getElementById('groups').innerHTML = groups.length ? groups.map(g => `
+      <div class="month">
+        <div class="month-head">${g.title}<small>${g.items.length} ${g.items.length === 1 ? 'item' : 'items'}</small></div>
+        ${g.note ? `<p class="month-note">${g.note}</p>` : ''}
+        ${g.items.map(item).join('')}
+      </div>`).join('') : '<div class="empty">Nothing matches this filter.</div>';
+
+    const past = all.filter(isPast).filter(match).sort((a,b) => b.deadline.localeCompare(a.deadline));
+    document.getElementById('pastWrap').style.display = past.length ? '' : 'none';
+    document.getElementById('pastSummary').textContent = `Past deadlines (${past.length})`;
+    document.getElementById('past').innerHTML = past.map(item).join('');
+  }
+  render();
+
+  // Calendar export (.ics, all-day event on the deadline)
+  const toast = msg => { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1800); };
+  const icsEsc = s => String(s || '').replace(/[\\;,]/g, m => '\\' + m).replace(/\n/g, '\\n');
+  document.addEventListener('click', e => {
+    const ics = e.target.closest('[data-ics]');
+    if (ics) {
+      const o = all.find(x => x.id === ics.dataset.ics);
+      const d = o.deadline.replace(/-/g, '');
+      const end = parse(o.deadline); end.setDate(end.getDate() + 1);
+      const e2 = end.getFullYear() + String(end.getMonth()+1).padStart(2,'0') + String(end.getDate()).padStart(2,'0');
+      const body = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Hagerstrand Lab//Calls//EN','BEGIN:VEVENT',
+        'UID:' + o.id + '@hagerstrandlab.se',
+        'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z',
+        'DTSTART;VALUE=DATE:' + d, 'DTEND;VALUE=DATE:' + e2,
+        'SUMMARY:' + icsEsc('Deadline: ' + o.title + (o.deadlineLabel ? ' (' + o.deadlineLabel + ')' : '')),
+        'DESCRIPTION:' + icsEsc(o.summary + '\n' + o.url), 'URL:' + o.url,
+        'BEGIN:VALARM','TRIGGER:-P7D','ACTION:DISPLAY','DESCRIPTION:' + icsEsc('One week to deadline: ' + o.title),'END:VALARM',
+        'END:VEVENT','END:VCALENDAR'].join('\r\n');
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([body], {type:'text/calendar'}));
+      a.download = o.id + '.ics'; document.body.appendChild(a); a.click(); a.remove();
+      return;
+    }
+    const cp = e.target.closest('[data-copy]');
+    if (cp) {
+      const url = location.href.split('#')[0] + '#' + cp.dataset.copy;
+      (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => toast('Link copied'), () => toast(url));
+    }
+  });
+
+  if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) setTimeout(() => el.scrollIntoView(), 50); }
+})();
+</script>
+</body>
+</html>

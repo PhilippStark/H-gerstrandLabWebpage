@@ -209,6 +209,55 @@ footer.site a{color:var(--accent-2);text-decoration:none}
 footer.site a:hover{color:var(--paper)}
 footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;color:rgba(251,249,244,.45);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 
+/* Current research — rotating panel */
+#research{padding:3.5rem 0 4rem;background:var(--paper-2)}
+#research .section-head{margin-bottom:2rem}
+#research .wrap{max-width:1380px}
+#research .section-head{max-width:calc(var(--maxw) - 4rem);margin-left:auto;margin-right:auto}
+.rc{position:relative}
+.rc-viewport{overflow:hidden;border:1px solid var(--rule);border-radius:4px;background:#fff;box-shadow:0 14px 34px -22px rgba(20,33,61,.35)}
+.rc-track{display:flex;transition:transform .65s cubic-bezier(.4,.1,.2,1)}
+.rc-slide{flex:0 0 100%;min-width:0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.rc-media{margin:0;padding:1.2rem 1.2rem .9rem;border-right:1px solid var(--rule-soft);display:flex;flex-direction:column;justify-content:center;background:#fff}
+.rc-media a{display:block;cursor:zoom-in}
+.rc-media img{width:100%;max-height:460px;object-fit:contain}
+.rc-media figcaption{font-size:.76rem;color:var(--muted);font-style:italic;margin-top:.5rem;line-height:1.42}
+.rc-media.noimg{background:var(--ink);color:var(--paper);align-items:center;text-align:center;font-family:'Source Serif 4',Georgia,serif;font-size:1.3rem}
+.rc-text{padding:1.7rem 2rem;display:flex;flex-direction:column;gap:.7rem}
+.rc-kicker{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.rc-kicker .kind{color:var(--paper);background:var(--accent);padding:.2rem .55rem;border-radius:3px;letter-spacing:.12em}
+.rc-text h3{font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:clamp(1.3rem,2.2vw,1.6rem);line-height:1.25;color:var(--ink)}
+.rc-authors{font-size:.9rem;color:var(--ink-soft)}
+.rc-summary{font-size:.95rem;color:var(--text);line-height:1.6}
+.rc-takeaway{font-size:.93rem;color:var(--ink);border-left:2px solid var(--accent);padding:.1rem 0 .1rem .9rem;font-style:italic;font-family:'Source Serif 4',Georgia,serif}
+.rc-links{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin-top:auto;padding-top:.3rem}
+.rc-links a.sub{font-size:.85rem;color:var(--accent);text-decoration:none;font-weight:500;border-bottom:1px solid transparent}
+.rc-links a.sub:hover{border-bottom-color:var(--accent)}
+.rc-controls{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1rem}
+.rc-controls[hidden]{display:none}
+.rc-dots{display:flex;gap:.45rem}
+.rc-dots button{width:26px;height:4px;border:none;border-radius:2px;background:var(--rule);cursor:pointer;padding:0;transition:background .2s}
+.rc-dots button[aria-current="true"]{background:var(--accent)}
+.rc-arrows{display:flex;gap:.4rem}
+.rc-arrows button{width:38px;height:38px;border-radius:50%;border:1px solid var(--rule);background:#fff;color:var(--ink);font-size:1rem;cursor:pointer;transition:border-color .2s,color .2s}
+.rc-arrows button:hover{border-color:var(--accent);color:var(--accent)}
+.rc-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.rc-tag{font-size:.74rem;font-weight:500;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--rule);border-radius:999px;padding:.2rem .65rem;text-decoration:none;transition:border-color .2s,color .2s}
+.rc-tag:hover,.rc-tag[aria-current="true"]{border-color:var(--accent);color:var(--accent)}
+.rc-copy{font:inherit;font-size:.85rem;color:var(--muted);background:none;border:none;cursor:pointer;padding:0;border-bottom:1px dashed var(--rule)}
+.rc-copy:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.rc-filter{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin-bottom:1rem;font-size:.88rem;color:var(--ink-soft)}
+.rc-filter[hidden]{display:none}
+.rc-filter strong{color:var(--ink)}
+.rc-filter a{color:var(--accent);text-decoration:none;font-weight:500}
+.rc-slide:target,.rc-slide{scroll-margin-top:90px}
+@media (max-width:860px){
+  .rc-slide{grid-template-columns:1fr}
+  .rc-media{border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .rc-text{padding:1.5rem 1.4rem}
+}
+@media (prefers-reduced-motion:reduce){.rc-track{transition:none}}
+
 /* Responsive */
 @media (max-width:960px){
   .gallery{grid-template-columns:repeat(3,1fr)}
@@ -248,10 +297,12 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
   <div class="topbar-inner">
     <a class="brand" href="#top">Hägerstrand<span class="dot"> · </span>Lab</a>
     <nav class="primary">
+      <a href="#research">Research</a>
       <a href="#about">About</a>
       <a href="#what">What We Do</a>
       <a href="#inauguration">Inauguration</a>
       <a href="news.html">News</a>
+      <a href="calls.html">Calls &amp; Conferences</a>
       <a href="#visit">Visit</a>
     </nav>
   </div>
@@ -317,6 +368,26 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
           <strong>LUNARC</strong>
           <small>Scientific Computing</small>
         </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research" aria-labelledby="research-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">Current research</div>
+      <h2 id="research-title">New work from the lab.</h2>
+    </div>
+    <div class="rc-filter" id="rcFilter" hidden></div>
+    <div class="rc" id="rc" role="region" aria-roledescription="carousel" aria-label="Current research">
+      <div class="rc-viewport"><div class="rc-track" id="rcTrack" aria-live="polite"></div></div>
+      <div class="rc-controls" id="rcControls" hidden>
+        <div class="rc-dots" id="rcDots" role="group" aria-label="Choose item"></div>
+        <div class="rc-arrows">
+          <button type="button" id="rcPrev" aria-label="Previous">&larr;</button>
+          <button type="button" id="rcNext" aria-label="Next">&rarr;</button>
+        </div>
       </div>
     </div>
   </div>
@@ -493,6 +564,98 @@ footer.site .credit{width:100%;margin-top:2rem;padding-top:1.5rem;border-top:1px
   <img id="lbImg" src="" alt="">
 </div>
 
+<script src="data/research.js"></script>
+<script>
+(function(){
+  /* Links:  index.html#research/<id>        opens that contribution
+             index.html#research/tag/<slug>  shows only contributions with that tag */
+  const all=(window.HL_RESEARCH||[]).filter(i=>!i.hidden);
+  const sec=document.getElementById('research');
+  if(!all.length){sec.hidden=true;return;}
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const slug=t=>String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const fmt=d=>{if(!d)return'';const[y,m,dd]=d.split('-').map(Number);return new Date(y,m-1,dd).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});};
+  const tagName={};all.forEach(it=>(it.tags||[]).forEach(t=>tagName[slug(t)]=t));
+  const track=document.getElementById('rcTrack'),controls=document.getElementById('rcControls'),dots=document.getElementById('rcDots'),filterBar=document.getElementById('rcFilter');
+  const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let items=[],idx=0,timer=null,paused=false,activeTag=null;
+
+  function render(tag){
+    activeTag=tag&&tagName[tag]?tag:null;
+    items=activeTag?all.filter(it=>(it.tags||[]).some(t=>slug(t)===activeTag)):all;
+    filterBar.hidden=!activeTag;
+    if(activeTag)filterBar.innerHTML=`<span>Showing ${items.length} contribution${items.length>1?'s':''} tagged <strong>${esc(tagName[activeTag])}</strong></span><a href="#research">Show all &times;</a>`;
+    track.innerHTML=items.map((it,i)=>{
+      const links=it.links||[];
+      const main=links[0]?`<a class="btn" href="${esc(links[0].url)}" target="_blank" rel="noopener">${esc(links[0].label)} <span class="arr">&rarr;</span></a>`:'';
+      const subs=links.slice(1).map(l=>`<a class="sub" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} &#8599;</a>`).join('');
+      const tags=(it.tags||[]).map(t=>`<a class="rc-tag" href="#research/tag/${slug(t)}"${slug(t)===activeTag?' aria-current="true"':''}>${esc(t)}</a>`).join('');
+      const media=it.image
+        ?`<figure class="rc-media"><a href="${esc(it.image)}" data-rc-zoom><img src="${esc(it.image)}" alt="${esc(it.imageAlt||it.title)}" loading="lazy"></a>${it.imageCaption?`<figcaption>${esc(it.imageCaption)}</figcaption>`:''}</figure>`
+        :`<figure class="rc-media noimg">${esc(it.venue||it.kind||'Research')}</figure>`;
+      return `<article class="rc-slide" id="r-${esc(it.id)}" role="group" aria-roledescription="slide" aria-label="${i+1} of ${items.length}">
+        ${media}
+        <div class="rc-text">
+          <div class="rc-kicker">${it.kind?`<span class="kind">${esc(it.kind)}</span>`:''}<span>${esc(it.venue)}</span>${it.date?`<span>${fmt(it.date)}</span>`:''}</div>
+          <h3>${esc(it.title)}</h3>
+          ${it.authors?`<div class="rc-authors">${it.authors.map(esc).join(', ')}</div>`:''}
+          <p class="rc-summary">${esc(it.summary)}</p>
+          ${it.takeaway?`<p class="rc-takeaway">${esc(it.takeaway)}</p>`:''}
+          ${tags?`<div class="rc-tags" aria-label="Tags">${tags}</div>`:''}
+          <div class="rc-links">${main}${subs}<button type="button" class="rc-copy" data-id="${esc(it.id)}">Copy link</button></div>
+        </div>
+      </article>`;
+    }).join('');
+    track.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{const f=img.closest('figure');f.className='rc-media noimg';f.textContent='Figure unavailable';},{once:true}));
+    controls.hidden=items.length<2;
+    dots.innerHTML=items.map((_,i)=>`<button type="button" aria-label="Item ${i+1}"></button>`).join('');
+    [...dots.children].forEach((d,i)=>d.onclick=()=>{go(i);start();});
+    track.style.transition='none';go(0);track.offsetWidth;track.style.transition='';
+    start();
+  }
+  function go(n){
+    if(!items.length)return;
+    idx=(n+items.length)%items.length;track.style.transform=`translateX(-${idx*100}%)`;
+    [...dots.children].forEach((d,i)=>d.setAttribute('aria-current',i===idx));
+    [...track.children].forEach((s,i)=>{s.setAttribute('aria-hidden',i!==idx);s.querySelectorAll('a,button').forEach(a=>a.tabIndex=i===idx?0:-1);});
+  }
+  function start(){clearInterval(timer);if(reduce||items.length<2)return;timer=setInterval(()=>{if(!paused&&!document.hidden)go(idx+1)},9000);}
+
+  function fromHash(scroll){
+    const h=decodeURIComponent(location.hash.slice(1));
+    let m;
+    if((m=h.match(/^research\/tag\/(.+)$/))){render(m[1]);}
+    else if((m=h.match(/^(?:research\/|r-)(.+)$/))&&all.some(it=>it.id===m[1])){
+      if(activeTag&&!items.some(it=>it.id===m[1]))render(null);else if(!items.length)render(null);
+      go(items.findIndex(it=>it.id===m[1]));paused=true;
+    }
+    else if(h==='research'){if(activeTag||!track.children.length)render(null);}
+    else {if(!track.children.length)render(null);return;}
+    if(scroll)sec.scrollIntoView({behavior:reduce?'auto':'smooth'});
+  }
+
+  track.addEventListener('click',e=>{
+    const z=e.target.closest('[data-rc-zoom]');
+    if(z&&lb&&lbImg){e.preventDefault();lbImg.src=z.getAttribute('href');lbImg.alt=z.querySelector('img')?.alt||'';lb.classList.add('open');document.body.style.overflow='hidden';return;}
+    const c=e.target.closest('.rc-copy');
+    if(c){const url=location.href.split('#')[0]+'#research/'+c.dataset.id;
+      const done=t=>{c.textContent=t;setTimeout(()=>c.textContent='Copy link',1800);};
+      (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(()=>done('Link copied'),()=>{window.prompt('Link to this contribution:',url);});
+      history.replaceState(null,'','#research/'+c.dataset.id);}
+  });
+  document.getElementById('rcPrev').onclick=()=>{go(idx-1);start();};
+  document.getElementById('rcNext').onclick=()=>{go(idx+1);start();};
+  const rc=document.getElementById('rc');
+  rc.addEventListener('mouseenter',()=>paused=true);rc.addEventListener('mouseleave',()=>paused=false);
+  rc.addEventListener('focusin',()=>paused=true);rc.addEventListener('focusout',()=>paused=false);
+  rc.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){go(idx-1);start();}if(e.key==='ArrowRight'){go(idx+1);start();}});
+  let x0=null;track.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+  track.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(idx+(dx<0?1:-1));start();}x0=null;});
+  window.addEventListener('hashchange',()=>fromHash(true));
+  render(null);fromHash(true);
+})();
+</script>
 <script>
 (function(){
   const lb=document.getElementById('lb');
