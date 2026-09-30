@@ -29,7 +29,7 @@
     added       "YYYY-MM-DD" when it was added to this list
     hidden      optional true to hide without deleting
 */
-window.HL_UPDATED = "2026-09-29";
+window.HL_UPDATED = "2026-09-30";
 
 window.HL_OPPORTUNITIES = [
   {
@@ -185,6 +185,22 @@ window.HL_OPPORTUNITIES = [
     "summary": "Core computational social science venue for text, media and platform data — fits the lab's large-scale media analysis. Deadline taken from a deadline tracker; confirm on the official page.",
     "tags": ["CSS", "text analysis", "social media"],
     "added": "2026-09-29"
+  },
+  {
+    "id": "igarss-2027",
+    "type": "conference",
+    "status": "upcoming",
+    "title": "IGARSS 2027 — IEEE International Geoscience and Remote Sensing Symposium",
+    "organizer": "IEEE Geoscience and Remote Sensing Society",
+    "url": "https://2027.ieeeigarss.org/call_for_papers.php",
+    "opens": "2026-11-10",
+    "deadline": "2027-01-11",
+    "deadlineLabel": "Papers, abstracts & published articles",
+    "eventDates": "11–16 Jul 2027",
+    "location": "Reykjavík, Iceland (Harpa)",
+    "summary": "The largest remote sensing conference — theme \"Global Vision for a Changing Planet\". Accepts 4-page papers, 400–600-word abstracts, or recently published Q1 articles (from 2026), which makes it an easy venue for satellite-enabled social science work with SESAC.",
+    "tags": ["remote sensing", "satellite", "SESAC"],
+    "added": "2026-09-30"
   },
   {
     "id": "rsa-2027",

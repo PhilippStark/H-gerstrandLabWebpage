@@ -12,9 +12,10 @@ Nothing on the site updates itself; every item is added by hand after checking t
 
 ## With Claude
 
-- **Add from a link:** paste the call/conference URL and say "add this to the calls page". Claude reads the official page, fills in the fields, shows you the entry, and pushes once you confirm.
-- **Remove:** "remove the ICWSM item" (or several at once).
-- **Weekly scan:** a scheduled task searches for new candidates every week and posts a shortlist. You reply with what to keep (e.g. "keep 1, 3, 5"); only then is the file updated and pushed.
+- **Add:** give Claude a link, a pasted announcement, or just a name ("add IGARSS 2027"). Claude reads the official page, searches for any missing details, and shows you a draft entry with anything uncertain flagged. Nothing is written until you approve it.
+- **Change / remove:** "move the AGILE deadline", "remove the ICWSM item". Claude shows what will change and waits for your OK.
+- **Publish:** after you approve, Claude writes the change into `data/opportunities.js`. You commit and push it (e.g. with GitHub Desktop).
+- **Weekly scan:** a weekly search can suggest new candidates as a numbered shortlist. You pick what to keep, and the same review step applies.
 
 ## What fits the list
 
